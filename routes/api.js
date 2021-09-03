@@ -14,7 +14,7 @@ router.post('/api/workouts', (req, res) => {
 
 // router for workout w/id
 router.put('/api/workouts/:id', ({ body, params }, res) => {
-    Fitness.findByIdandUpdate(
+    Fitness.findByIdAndUpdate(
         params.id,
         { $push: { exercises: body } },
         { new: true, runValidators: true }
@@ -66,7 +66,7 @@ router.get('/api/workouts/range', (req, res) => {
 });
 
 router.delete('/api/workouts', ({ body }, res) => {
-    Fitness.findByIdandDelete(body.id)
+    Fitness.findByIdAndDelete(body.id)
         .then(() => {
             res.json(true);
         })
