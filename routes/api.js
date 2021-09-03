@@ -20,6 +20,7 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
         { new: true, runValidators: true }
     )
         .then((dbFitness) => {
+            console.log(dbFitness);
             res.json(dbFitness);
         })
         .catch((err) => {
@@ -58,6 +59,7 @@ router.get('/api/workouts/range', (req, res) => {
         .sort({ _id: -1 })
         .limit(7)
         .then((dbFitness) => {
+            console.log(dbFitness);
             res.json(dbFitness);
         })
         .catch((err) => {
